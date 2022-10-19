@@ -1,0 +1,128 @@
+root =Tk()
+root.geometry("1800x800")
+#root.attributes('-fullscreen', True)
+root.configure(background='black')
+image1 = Image.open("hackthon.png")
+test = ImageTk.PhotoImage(image1)
+
+label1 = tkinter.Label(image=test)
+label1.image = test
+
+# Position image
+label1.place(x=0, y=0)
+
+
+Symptom1 = StringVar()
+Symptom1.set("Select symptom1")
+
+Symptom2 = StringVar()
+Symptom2.set("Select symptom2")
+
+Symptom3 = StringVar()
+Symptom3.set("Select symptom3")
+
+Symptom4 = StringVar()
+Symptom4.set("Select symptom4")
+
+Symptom5 = StringVar()
+Symptom5.set("Select symptom5")
+
+Name = StringVar()
+    
+Name1Lb = Label(root,text="", fg="White", bg="Black")
+Name1Lb.config(font=("Times",30,"bold italic"))
+Name1Lb.grid(row=1, column=1, pady=20, sticky=W)
+
+S11Lb = Label(root, text="", fg="White", bg="Black")
+S11Lb.config(font=("Times",15,"bold italic"))
+S11Lb.grid(row=2, column=1, pady=10, sticky=W)
+
+S22Lb = Label(root, text="", fg="White", bg="Black")
+S22Lb.config(font=("Times",15,"bold italic"))
+S22Lb.grid(row=3, column=1, pady=10, sticky=W)
+
+S33Lb = Label(root, text="", fg="White",bg="Black")
+S33Lb.config(font=("Times",15,"bold italic"))
+S33Lb.grid(row=4, column=1, pady=10, sticky=W)
+
+S44Lb = Label(root, text="", fg="White", bg="Black")
+S44Lb.config(font=("Times",15,"bold italic"))
+S44Lb.grid(row=5, column=1, pady=10, sticky=W)
+
+    
+NameLb = Label(root, text="         Name of the Patient", fg="White", bg="Black")
+NameLb.config(font=("Times",20,"bold italic"))
+NameLb.grid(row=6, column=1, pady=20, sticky=W)
+
+S1Lb = Label(root, text="         Enter Symptom 1", fg="White", bg="Black")
+S1Lb.config(font=("Times",20,"bold italic"))
+S1Lb.grid(row=7, column=1, pady=10, sticky=W)
+
+S2Lb = Label(root, text="         Enter Symptom 2", fg="White", bg="Black")
+S2Lb.config(font=("Times",20,"bold italic"))
+S2Lb.grid(row=8, column=1, pady=10, sticky=W)
+
+S3Lb = Label(root, text="         Enter Symptom 3", fg="White",bg="Black")
+S3Lb.config(font=("Times",20,"bold italic"))
+S3Lb.grid(row=9, column=1, pady=10, sticky=W)
+
+S4Lb = Label(root, text="         Enter Symptom 4", fg="White", bg="Black")
+S4Lb.config(font=("Times",20,"bold italic"))
+S4Lb.grid(row=10, column=1, pady=10, sticky=W)
+
+S5Lb = Label(root, text="        Enter Symptom 5", fg="White", bg="Black")
+S5Lb.config(font=("Times",20,"bold italic"))
+S5Lb.grid(row=11, column=1, pady=10, sticky=W)
+
+S6Lb = Label(root, text="               ", fg="White", bg="Black")
+S6Lb.config(font=("Times",15,"bold italic"))
+S6Lb.grid(row=13, column=1, pady=10, sticky=W)
+
+lrLb = Label(root, text="   PREDICTED DISEASE", fg="red", bg="black")
+lrLb.config(font=("Times",20,"bold italic"))
+lrLb.grid(row=16, column=1, pady=10,sticky=W)
+
+S7Lb = Label(root, text="               ", fg="White", bg="Black")
+S7Lb.config(font=("Times",15,"bold italic"))
+S7Lb.grid(row=17, column=1, pady=10, sticky=W)
+
+OPTIONS = sorted(l1)
+
+NameEn = Entry(root, textvariable=Name,width=23)
+NameEn.grid(row=6, column=5,ipady=8)
+
+S1 = OptionMenu(root, Symptom1,*OPTIONS)
+S1.grid(row=7, column=5)
+S1.config(bg="black",fg="white")
+S1["menu"].config(bg="black",fg="white")
+
+S2 = OptionMenu(root, Symptom2,*OPTIONS)
+S2.grid(row=8, column=5)
+S2.config(bg="black",fg="white")
+S2["menu"].config(bg="black",fg="white")
+
+S3 = OptionMenu(root, Symptom3,*OPTIONS)
+S3.grid(row=9, column=5)
+S3.config(bg="black",fg="white")
+S3["menu"].config(bg="black",fg="white")
+
+S4 = OptionMenu(root, Symptom4,*OPTIONS)
+S4.grid(row=10, column=5)
+S4.config(bg="black",fg="white")
+S4["menu"].config(bg="black",fg="white")
+
+S5 = OptionMenu(root, Symptom5,*OPTIONS)
+S5.grid(row=11, column=5)
+S5.config(bg="black",fg="white")
+S5["menu"].config(bg="black",fg="white")
+
+
+dst = Button(root, text="PREDICT", command=DecisionTree,fg="Red",bg="Black")
+dst.config(font=("Times",20,"bold"))
+dst.grid(row=12, column=3,padx=10)
+
+t1 = Text(root, height=1, width=40,bg="White",fg="black")
+t1.config(font=("arial",20,"bold italic"))
+t1.grid(row=16, column=5, padx=10)
+
+root.mainloop()
